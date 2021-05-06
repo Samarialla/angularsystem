@@ -16,7 +16,7 @@ export class LoginService {
   userDataLogin: any = {};
 
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-  urlUserData = environment.baseUrl+'apibancaria/api/usuario/userdata';
+  //urlUserData = environment.baseUrl+'apibancaria/api/usuario/userdata';
 
   protected token;
   constructor(private oauthService: OAuthService, private httpClient: HttpClient) { }

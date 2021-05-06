@@ -42,12 +42,7 @@ import { environment } from "environments/environment";
     FooterModule,
     FixedPluginModule,
     HttpClientModule,
-    OAuthModule.forRoot({
-      resourceServer: {
-        allowedUrls: [environment.basUrlKeycloak + 'auth/realms/interno/protocol/openid-connect/auth?response_type=code&client_id=interno-fronted'],
-        sendAccessToken: true
-      }
-    }),
+  
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
