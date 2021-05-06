@@ -14,27 +14,19 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { OAuthModule } from "angular-oauth2-oidc";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
-import { environment } from "environments/environment";
-
-
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-     
-   
+    AdminLayoutComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, {useHash:true}),
     BrowserModule,
     SidebarModule,
     NavbarModule,

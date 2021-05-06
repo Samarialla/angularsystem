@@ -3,7 +3,6 @@ import { ROUTES } from '../../sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
-import { LoginService } from 'app/services/login/login.service';
 
 @Component({
   moduleId: module.id,
@@ -25,7 +24,7 @@ export class NavbarComponent implements OnInit {
   public isCollapsed = true;
   @ViewChild("navbar-cmp", { static: false }) button;
 
-  constructor(location: Location, private renderer: Renderer2, private element: ElementRef, private router: Router, private loginService: LoginService,) {
+  constructor(location: Location, private renderer: Renderer2, private element: ElementRef, private router: Router) {
     this.location = location;
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
@@ -40,19 +39,9 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe((event) => {
       this.sidebarClose();
     });
-    this.username = this.loginService.getUsername();
     
 
   }
-
-
-
-
-  public login(): void {
-    this.loginService.login();
-  }
-
-
 
 
   getTitle() {
@@ -130,7 +119,7 @@ export class NavbarComponent implements OnInit {
       cancelButtonText: 'NO',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.loginService.logout();
+       return false;
       }
     })
   }
